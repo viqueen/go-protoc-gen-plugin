@@ -1,0 +1,28 @@
+name: post-template-setup
+on:
+  repository_dispatch:
+    types: [created]
+
+permissions:
+  contents: write
+
+jobs:
+  post-create:
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: actions/checkout@v4
+      - run: ./template.sh ${GITHUB_ACTOR} ${GITHUB_REPOSITORY}
+      - name: Delete the setup script and workflow file
+        run: |
+          rm -f template.sh .github/workflows/_post-template-setup.yml
+
+      - name: Commit changes
+        run: |
+          git config --global user.name "GitHub Actions"
+          git config --global user.email "actions@github.com"
+          git add .
+          git commit -m "Remove template.sh and workflow file"
+
+      - name: Push changes
+        run: |
+          git push origin HEAD:${GITHUB_REF}
