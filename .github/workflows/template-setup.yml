@@ -1,4 +1,4 @@
-name: post-template-setup
+name: template-setup
 on:
   create:
     branches:
@@ -15,7 +15,7 @@ jobs:
       - run: ./template.sh ${GITHUB_ACTOR} ${GITHUB_REPOSITORY}
       - name: Delete the setup script and workflow file
         run: |
-          rm -f template.sh .github/workflows/_post-template-setup.yml
+          rm -f template.sh .github/workflows/template-setup.yml
 
       - name: Commit changes
         run: |
