@@ -1,8 +1,8 @@
 name: template-setup
 on:
-  create:
+  push:
     branches:
-      - '*'
+      - main
 
 permissions:
   contents: write
