@@ -1,7 +1,8 @@
 name: post-template-setup
 on:
-  repository_dispatch:
-    types: [created]
+  create:
+    branches:
+      - main
 
 permissions:
   contents: write
@@ -25,4 +26,4 @@ jobs:
 
       - name: Push changes
         run: |
-          git push origin HEAD:${GITHUB_REF}
+          git push origin HEAD:main
