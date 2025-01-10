@@ -11,5 +11,5 @@ This is a template for creating a protoc plugin in Golang.
 - using **go**
 
 ```bash
-go install github.com/<username>/protoc-gen-plugin/cmd@latest
+go install github.com/<username>/go-protoc-gen-plugin/cmd@latest
 ```
