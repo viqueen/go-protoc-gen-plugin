@@ -2,7 +2,7 @@ name: template-setup
 on:
   create:
     branches:
-      - main
+      - '*'
 
 permissions:
   contents: write
